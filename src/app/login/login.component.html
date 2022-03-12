@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Login</h1>
+                </div>
+
+                <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+                    
+                    <div class="form-group">
+                      <label class="form-label">Email address</label>
+                      <input formControlName="email" placeholder="Enter valid email" type="email" class="form-control" id="email" required>
+                      <div class="error" *ngIf="email?.invalid && (email?.dirty || email?.touched)"  class="error" >
+
+                        <div *ngIf="email?.errors?.['required']">
+                          Email is required!
+                        </div>
+                        <div *ngIf="email?.errors?.['pattern']">
+                          Invalid Email!
+                        </div>
+                        </div>
+            
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Password</label>
+                      <input formControlName="password" placeholder="Enter valid password" type="password" class="form-control" id="password" required>
+                      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+
+                        <div *ngIf="password?.errors?.['required']">
+                          Password is required.
+                        </div>
+                        <div *ngIf="password?.errors?.['minlength']">
+                          Invalid password!
+                        </div>
+                        </div>
+                    </div><br><br>
+                    <div class="center">
+                    <button type="submit" class="btn btn-primary" id="loginButton">Login</button >
+                      </div><br>
+                      New Here?
+                      <a routerLink="/signup" id="signupLink">SignUp</a>
+
+                      
+                  </form>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

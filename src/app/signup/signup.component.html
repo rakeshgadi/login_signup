@@ -1,0 +1,98 @@
+<div class="container ">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="text-center">
+                  <h1>Register</h1><br>
+              </div>
+
+              <form [formGroup]="signupForm" novalidate (ngSubmit)="signUp()">
+                <div>
+                <label><p>Type of User:</p></label><br>
+                <select name='typeOfUser' formControlName="user1" class="center" required>
+                  <option value='0' id="user">Customer</option>
+                  <option value='1' id="jobseeker">Shop Keeper</option>
+                  <option value='2' id="admin">Admin</option>
+                </select>
+                <div *ngIf="user1?.invalid && (user1?.dirty || user1?.touched)"  class="error">
+
+                  <div *ngIf="user1?.errors?.['required']">
+                    Field is required!
+                  </div>
+                  </div>
+                </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Email address</label>
+                    <input formControlName="email" placeholder="ex:abc@xyz.com" type="email" class="form-control" id="email" required>
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)"  class="error">
+
+  <div *ngIf="email?.errors?.['required']">
+    Email is required!
+  </div>
+  <div *ngIf="email?.errors?.['pattern']">
+    Invalid Email!
+  </div>
+  </div>
+          
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">User Name</label>
+                    <input formControlName="username" placeholder="ex:John" type="text" class="form-control" id="username" required>
+                    <div *ngIf="username?.invalid && (username?.dirty || username?.touched)"  class="error">
+
+  <div *ngIf="username?.errors?.['required']">
+    Name is required!
+  </div>
+  <div *ngIf="username?.errors?.['minlength']">
+    Username atleast 4 characters
+  </div>
+  </div>
+
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Mobile Number</label>
+                    <input formControlName="mobileNumber" placeholder="ex:1234567890" type="tel" class="form-control" id="mobileNumber" required>
+                    <div *ngIf="mobileNumber?.invalid && (mobileNumber?.dirty || mobileNumber?.touched)"  class="error">
+
+  <div *ngIf="mobileNumber?.errors?.['required']">
+    Mobile number is required.
+  </div>
+  <div *ngIf="mobileNumber?.errors?.['minlength']">
+    Minimum length 10!
+  </div>
+  <div *ngIf="mobileNumber?.errors?.['maxlength']">
+    Maximum length 10!
+  </div>
+  <div *ngIf="mobileNumber?.errors?.['pattern']">
+    Invalid Mobile Number!
+  </div>
+</div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input formControlName="password" placeholder="Atleast 8 characters" type="password" class="form-control" id="password" required>
+                    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+
+  <div *ngIf="password?.errors?.['required']">
+    Password is required.
+  </div>
+  <div *ngIf="password?.errors?.['minlength']">
+    Invalid password!
+  </div>
+  </div>
+                  </div><br><br>
+                  <div class="center">
+                  <button type="submit" class="btn btn-primary" id="submitButton">Register</button >
+                    </div><br>
+                    Already a member?
+                    <a routerLink="/login" id="signInLink">Login</a>
+
+                    
+                </form>
+
+          </div>
+          
+      </div>
+  </div>
+</div>
